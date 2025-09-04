@@ -93,9 +93,6 @@ cypress/screenshots
 cypress/accessibility
 setupTestEnv.sh
 
-# Storybook
-storybook-static/
-
 # Packages
 dist-pkg
 tmp

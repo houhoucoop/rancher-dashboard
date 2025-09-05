@@ -98,10 +98,10 @@ onBeforeUnmount(() => {
     v-if="localShow"
     :width="modalWidth"
     name="cron-editor-modal"
-    customClass="cron-editor-modal"
+    custom-class="cron-editor-modal"
     aria-labelledby="cron-editor-title"
     aria-describedby="cron-editor-desc"
-    triggerFocusTrap
+    trigger-focus-trap
     @close="closeModal"
   >
     <div
@@ -126,9 +126,9 @@ onBeforeUnmount(() => {
       </div>
 
       <CronExpressionEditor
-        v-model:cronExpression="localCron"
-        v-model:readableCron="readableCron"
-        v-model:isValid="isCronValid"
+        v-model:cron-expression="localCron"
+        v-model:readable-cron="readableCron"
+        v-model:is-valid="isCronValid"
         class="custom-cron-editor"
       />
 
@@ -183,9 +183,6 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped lang="scss">
-$cron-wildcard-width: 32px;
-$cron-example-width: 75px;
-
 :global(#modals .cron-editor-modal) {
   border-radius: var(--border-radius-lg);
 }
@@ -204,6 +201,7 @@ $cron-example-width: 75px;
 
   .custom-cron-editor {
     margin: 64px auto;
+    max-width: 480px;
   }
 
   .cron-info {

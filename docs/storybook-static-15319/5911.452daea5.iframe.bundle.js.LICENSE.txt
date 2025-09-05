@@ -1,0 +1,5 @@
+/**
+  * vee-validate v4.15.0
+  * (c) 2024 Abdelrahman Awad
+  * @license MIT
+  */

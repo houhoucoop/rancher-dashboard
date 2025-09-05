@@ -143,7 +143,8 @@ onBeforeUnmount(() => {
               v-for="(item, idx) in wildcards"
               :key="idx"
             >
-              <span>{{ item.symbol }}</span> {{ t(item.desc) }}
+              <span class="symbol">{{ item.symbol }}</span>
+              <span class="desc">{{ t(item.desc) }}</span>
             </li>
           </ul>
         </div>
@@ -155,7 +156,8 @@ onBeforeUnmount(() => {
               v-for="(ex, idx) in examples"
               :key="idx"
             >
-              <span>{{ ex.cron }}</span> {{ t(ex.desc) }}
+              <span class="symbol">{{ ex.cron }}</span>
+              <span class="desc">{{ t(ex.desc) }}</span>
             </li>
           </ul>
         </div>
@@ -184,8 +186,12 @@ onBeforeUnmount(() => {
 $cron-wildcard-width: 32px;
 $cron-example-width: 75px;
 
+:global(#modals .cron-editor-modal) {
+  border-radius: var(--border-radius-lg);
+}
+
 .modal-body {
-  padding: 20px;
+  padding: 20px 20px 8px;
 
   .description {
     margin: 16px 0;
@@ -205,38 +211,33 @@ $cron-example-width: 75px;
     gap: 52px;
     flex-wrap: nowrap;
     overflow-x: auto;
-    padding-bottom: 8px; // for scroll bar
 
     ul {
       list-style: none;
       padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      margin: 16px 0;
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 8px 10px;
 
       li {
+        display: contents;
         white-space: nowrap;
         color: var(--input-label);
         font-size: 12px;
+      }
 
-        span {
-          display: inline-block;
-          margin-right: 12px;
-          color: var(--body-text);
-        }
+      .symbol {
+        color: var(--body-text);
       }
     }
-
-    .cron-wildcards span { width: $cron-wildcard-width; }
-    .cron-examples span { width: $cron-example-width; }
   }
 }
 
 .modal-footer {
   border-top: 1px solid var(--border);
   display: flex;
-  padding: 8px 20px;
+  padding: 10px 20px;
   justify-content: flex-end;
 }
 </style>

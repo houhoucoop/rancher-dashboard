@@ -1419,8 +1419,30 @@ export const getters = {
         }
       }
 
-      if ( p.ifHaveGroup && !knownGroups[module].find((t) => t.match(stringToRegex(p.ifHaveGroup)) ) ) {
-        return false;
+      if (p.ifHaveGroup) {
+        const groupRegex = stringToRegex(p.ifHaveGroup);
+
+        let hasOtherTypeInGroup = false;
+
+        state.products.forEach((other) => {
+          const otherModule = other.inStore;
+
+          if (other === p || !other.ifHaveType || other.ifHaveGroup !== p.ifHaveGroup) return;
+
+          const otherHaveIds = knownTypes[otherModule]?.filter((t) => t.match(stringToRegex(other.ifHaveType)));
+
+          if (otherHaveIds && otherHaveIds.length) {
+            hasOtherTypeInGroup = true;
+          }
+        });
+
+        if (!p.ifHaveType && hasOtherTypeInGroup) {
+          return false;
+        }
+
+        if (!knownGroups[module].some((t) => t.match(groupRegex))) {
+          return false;
+        }
       }
 
       return true;
@@ -1515,6 +1537,12 @@ export const mutations = {
   },
 
   product(state, obj) {
+    const hasSuseStorage = state.products.some((p) => p.name === 'suse-storage');
+
+    if (hasSuseStorage && obj.name === 'longhorn') {
+      return;
+    }
+
     let existing = state.products.find((p) => p.name === obj.name);
 
     if ( existing ) {

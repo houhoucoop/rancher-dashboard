@@ -16,6 +16,7 @@ import { NAME as LOGGING_NAME, CHART_NAME as LOGGING_CHART_NAME } from '@shell/c
 import { NAME as MONITORING_NAME, CHART_NAME as MONITORING_CHART_NAME } from '@shell/config/product/monitoring';
 import { NAME as NEUVECTOR_NAME, CHART_NAME as NEUVECTOR_CHART_NAME } from '@shell/config/product/neuvector';
 import { NAME as LONGHORN_NAME, CHART_NAME as LONGHORN_CHART_NAME } from '@shell/config/product/longhorn';
+import { NAME as SUSE_STORAGE_NAME } from '~/shell/config/product/suse-storage';
 
 const interopDefault = (promise) => promise.then((page) => page.default || page);
 
@@ -267,6 +268,11 @@ export default [
         path:      '/c/:cluster/longhorn',
         component: () => interopDefault(import('@shell/pages/c/_cluster/longhorn/index.vue')),
         name:      'c-cluster-longhorn',
+        meta:      { ...installRedirectRouteMeta(LONGHORN_NAME, LONGHORN_CHART_NAME) }
+      }, {
+        path:      `/c/:cluster/suse-storage`,
+        component: () => interopDefault(import('@shell/pages/c/_cluster/suse-storage/index.vue')),
+        name:      `c-cluster-${ SUSE_STORAGE_NAME }`,
         meta:      { ...installRedirectRouteMeta(LONGHORN_NAME, LONGHORN_CHART_NAME) }
       }, {
         path: '/c/:cluster/manager',

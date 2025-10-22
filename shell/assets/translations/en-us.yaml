@@ -333,7 +333,7 @@ product:
   uiplugins: Extensions
   elemental: OS Management
   plugins: Plugins
-
+  suseStorage: SUSE Storage
 suffix:
   percent: "%"
   milliCpus: milli CPUs
@@ -372,7 +372,7 @@ layouts:
   unauthenticated: unauthenticated layout
   logout: logout layout
   verify: verify layout
-  
+
 about:
   title: About
   versions:
@@ -512,7 +512,7 @@ authConfig:
         4: <li>Click "New Github App"</li>
       instruction: 'Fill in the form with these values:'
       app:
-        label: GitHub App name 
+        label: GitHub App name
         value: 'Anything you like, e.g. My {vendor}'
       callback:
         label: Callback URL
@@ -744,7 +744,7 @@ authConfig:
         title: Are you sure? This update is irreversible.
         body: '<p><b>You may need to make some additional changes</b>. Please ensure the Azure AD app has the Directory.Read.All <b>Application</b> permission added to Microsoft Graph.<br> If any endpoints were customized while configuring Azure AD authentication in Rancher, they will not be automatically updated. </p>'
   oidc:
-    endSessionEndpoint: 
+    endSessionEndpoint:
       title: End Session Endpoint
       tooltip: Provider specific URL used for logging a user out of their session
     genericoidc: Configure an OIDC account
@@ -773,11 +773,11 @@ authConfig:
       enable:
         label: Add custom claims
         tooltip: Manually map OIDC claims when your provider doesn’t use standard claim names in tokens.
-      nameClaim: 
+      nameClaim:
         label: Custom Name Claim
-      groupsClaim: 
+      groupsClaim:
         label: Custom Groups Claim
-      emailClaim: 
+      emailClaim:
         label: Custom Email Claim
     cognitoIssuer: Issuer URL
     cognitoHelp: "You will need to create an application client in Cognito of type <b>Traditional web application</b> with the Return URL set to the URL shown below."
@@ -2092,7 +2092,7 @@ cluster:
         description: This allows IPv6 communication for components and workloads.
       ipv6AddressOnly:
         label: Use IPv6 Only
-      httpProtocolIpv6: 
+      httpProtocolIpv6:
         label: Use IPv6 for instance metadata service
       ipv6ValidationWarning: When one pool uses an IPv6 or dual-stack subnet/vpc, all pools must use an IPv6 or dual-stack subnet/vpc.
     pnap:
@@ -2718,7 +2718,7 @@ cruResource:
   showYaml: View as YAML
 
 providers:
-  hosted: 
+  hosted:
     title: Hosted Providers
     prime: Prime only
 drivers:
@@ -4205,6 +4205,16 @@ longhorn:
         description: 'Manage storage system via UI'
         na: Resource Unavailable
         uiServiceUnavailable: The Longhorn UI service is not available or you do not have permission to access it.
+
+suseStorage:
+  overview:
+    title: Overview
+    subtitle: "Powered By: <a href='https://github.com/longhorn' target='_blank' rel='noopener nofollow noreferrer'>Longhorn</a>"
+    linkedList:
+      label: 'SUSE Storage'
+      description: 'Manage storage system via UI'
+      na: Resource Unavailable
+      uiServiceUnavailable: The Longhorn UI service is not available or you do not have permission to access it.
 
 neuvector:
   overview:

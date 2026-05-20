@@ -4418,6 +4418,24 @@ longhorn:
   overview:
     title: Overview
     subtitle: "Powered By: <a href='https://github.com/longhorn' target='_blank' rel='noopener nofollow noreferrer'>Longhorn</a>"
+    extensionPromotion:
+      title: 'Longhorn UI Extension'
+      enableDescription: 'Enable Extension support to start installing and managing the Longhorn UI Extension.'
+      enableButton: 'Enable Extensions'
+      repoDescription: 'Simplify daily Longhorn operations in Rancher. Install the Longhorn UI Extension for faster, centralized management.'
+      repoButton: 'Install'
+      installDescription: 'You can review, update, or remove the Longhorn UI Extension anytime from the Extensions page.'
+      installButton: 'Open Extensions'
+      installingButton: 'Installing...'
+      statusTitle: 'Installation status'
+      retryButton: 'Retry installation'
+      chartNotFound: 'Longhorn UI Extension chart not found in repository.'
+      progress:
+        checkingRepo: 'Checking extension repository...'
+        syncingCatalog: 'Syncing chart information...'
+        fetchingVersion: 'Resolving extension version...'
+        installingExtension: 'Installing Longhorn UI Extension...'
+        waitingOperation: 'Waiting for installation to complete...'
     linkedList:
       longhorn:
         label: 'Longhorn'

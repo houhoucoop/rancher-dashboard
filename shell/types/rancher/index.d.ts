@@ -10,6 +10,10 @@ declare module '@shell/store/type-map' {
 declare module '@shell/plugins/dashboard-store';
 
 declare module '@shell/config/query-params' {
+  export const _CREATE: string;
+  export const _EDIT: string;
+  export const _LIST: string;
+  export const _CONFIG: string;
   export const _DETAIL: string;
 }
 
